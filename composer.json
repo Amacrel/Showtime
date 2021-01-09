@@ -1,0 +1,14 @@
+{
+  "name": "vendor_name/concert",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "alex",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+  }
+}
