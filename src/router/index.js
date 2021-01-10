@@ -5,6 +5,7 @@ import EditConcert from '@/components/concert/EditConcert'
 import ConcertsList from '@/components/concert/ConcertsList'
 import Profile from '@/components/Profile'
 import Login from '@/components/Login'
+import Register from '@/components/Register'
 
 Vue.use(VueRouter)
 
@@ -38,6 +39,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
   }
 ]
 

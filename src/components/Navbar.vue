@@ -23,7 +23,7 @@
         </router-link>
         <router-link
           class="nav-item nav-link"
-          :to="{ name: 'Home' }"
+          :to="{ name: 'Login' }"
         >
           Login
         </router-link>
