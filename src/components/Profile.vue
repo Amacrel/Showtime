@@ -12,6 +12,7 @@ export default {
   },
   mounted () {
     this.authuser = localStorage.getItem('connectedUser')
+    console.log(this.authuser)
   }
 }
 </script>

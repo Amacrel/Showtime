@@ -17,35 +17,73 @@
         </router-link>
         <router-link
           class="nav-item nav-link"
+          v-if="isLoggedIn"
           :to="{ name: 'Profile' }"
         >
           Profile
         </router-link>
         <router-link
+          v-if="!isLoggedIn"
           class="nav-item nav-link"
           :to="{ name: 'Login' }"
         >
           Login
         </router-link>
         <router-link
+          v-if="!isLoggedIn"
           class="nav-item nav-link"
+          :to="{ name: 'Register' }"
+        >
+          Register
+        </router-link>
+        <router-link
+          class="nav-item nav-link"
+          v-if="authuser.includes('admin') === true && isLoggedIn"
           :to="{ name: 'EditConcert' }"
         >
           Edit Concert
         </router-link>
          <router-link
           class="nav-item nav-link"
+          v-if="authuser.includes('admin') === true && isLoggedIn"
           :to="{ name: 'CreateConcert' }"
         >
           Create Concert
         </router-link>
+        <a
+          class="nav-item nav-link"
+          v-if="isLoggedIn"
+          @click.prevent="logout"
+          href="#"
+        >Logout</a
+        >
       </ul>
     </div>
   </nav>
 </template>
 
 <script>
-
+export default {
+  data () {
+    return {
+      isLoggedIn: false,
+      authuser: ''
+    }
+  },
+  mounted () {
+    this.authuser = localStorage.getItem('connectedUser')
+  },
+  created () {
+    this.isLoggedIn = !!localStorage.getItem('connected')
+  },
+  methods: {
+    logout () {
+      localStorage.removeItem('connected')
+      this.isLoggedIn = false
+      this.$router.push({ name: 'Home' })
+    }
+  }
+}
 </script>
 
 <style>
