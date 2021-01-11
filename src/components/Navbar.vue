@@ -71,7 +71,9 @@ export default {
     }
   },
   mounted () {
-    this.authuser = localStorage.getItem('connectedUser')
+    if (this.isLoggedIn === true) {
+      this.authuser = localStorage.getItem('connectedUser')
+    }
   },
   created () {
     this.isLoggedIn = !!localStorage.getItem('connected')
